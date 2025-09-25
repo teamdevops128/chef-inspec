@@ -1,0 +1,4 @@
+Control 1.0: Confirms svcauto user & nogroup group exist with correct UID/GID.
+Control 2.0: Ensures /home/users/svcauto and .ssh exist with proper ownership & permissions.
+Control 3.0: Validates authorized_keys exists with 0600 perms and correct ownership.
+Control 4.0: Verifies /etc/sudoers.d/51svcauto exists and that svcauto can sudo the expected commands without password.
