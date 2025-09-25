@@ -1,0 +1,19 @@
+Code explanation
+Creates a sudoers file (likely /etc/sudoers.d/50sysadmin).
+Grants the sysadmin group full sudo privileges:
+commands ['ALL'] → members of sysadmin can run any command.
+runas 'ALL' → they can run commands as any user, including root.
+Effectively, anyone in the sysadmin group has passwordless full root access.
+
+Code summary
+
+Skips execution on Windows.
+On Linux/Unix, creates a sudoers rule that allows the sysadmin group to run all commands as any user via sudo.
+So this role is a privilege escalation setup for sysadmin group members.
+
+Inspec Test case 
+
+Checks the sudoers file exists at /etc/sudoers.d/50sysadmin with correct owner, group, and permissions (0440).
+Validates sudoers syntax using visudo -cf (important for preventing broken sudo configs).
+Confirms the sysadmin group has ALL sudo privileges (ALL=(ALL) ALL)
+Ensures the sysadmin group exists on the RedHat machine.
